@@ -24,6 +24,14 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
+        <!-- hCaptcha widget -->
+        <div class="mt-4">
+            <div class="h-captcha"data-sitekey="{{ config('services.hcaptcha.site_key') }}"></div>
+            @error('h-captcha-response')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+            @enderror
+        </div>
+
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
